@@ -7,7 +7,10 @@ const kBottomContainerColor = Color(0xffeb1555);
 
 const kIconSize = 80.0;
 const kSizedBoxHeight = 15.0;
-const kTextStyle = TextStyle(
+const kLabelTextStyle = TextStyle(
   color: Color(0xff8d8e98),
   fontSize: 18.0,
 );
+
+const kNumberTextStyle =
+    TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900, color: Colors.white);
