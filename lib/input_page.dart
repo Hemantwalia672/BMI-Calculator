@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'card_one.dart';
 import 'constants.dart';
 import 'icon_content.dart';
+import 'round_icon_button.dart';
 
 enum Gender { male, female }
 
@@ -18,6 +19,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedgender;
   int height = 164;
+  int weight = 60;
+  int age = 19;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -66,7 +69,7 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                 child: CardOne(
                   onPress: () {
-                    print('Working');
+                    debugPrint('Working');
                   },
                   colour: kActiveCardColor,
                   cardChild: Column(
@@ -124,35 +127,93 @@ class _InputPageState extends State<InputPage> {
         Expanded(
           child: Row(
             children: [
+              //for bottom left button
               Expanded(
                 child: CardOne(
-                    onPress: () {
-                      setState(() {
-                        selectedgender = Gender.male;
-                      });
-                    },
-                    cardChild: IconContent(
-                      gendericon: FontAwesomeIcons.mars,
-                      gender: 'MALE',
-                    ),
-                    colour: selectedgender == Gender.male
-                        ? kActiveCardColor
-                        : kInactiveCardColor),
+                  colour: kActiveCardColor,
+                  onPress: () {},
+                  cardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'WEIGHT',
+                        style: kLabelTextStyle,
+                      ),
+                      Text(
+                        weight.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.minus,
+                            pressed: () {
+                              setState(() {
+                                weight--;
+                              });
+                            },
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            pressed: () {
+                              setState(() {
+                                weight++;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
+              // for Bottom Right Button
               Expanded(
                 child: CardOne(
-                    onPress: () {
-                      setState(() {
-                        selectedgender = Gender.female;
-                      });
-                    },
-                    cardChild: IconContent(
-                      gendericon: FontAwesomeIcons.venus,
-                      gender: 'FEMALE',
-                    ),
-                    colour: selectedgender == Gender.female
-                        ? kActiveCardColor
-                        : kInactiveCardColor),
+                  colour: kActiveCardColor,
+                  onPress: () {},
+                  cardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'AGE',
+                        style: kLabelTextStyle,
+                      ),
+                      Text(
+                        age.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.minus,
+                            pressed: () {
+                              setState(() {
+                                age--;
+                              });
+                            },
+                          ),
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            pressed: () {
+                              setState(() {
+                                age++;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
