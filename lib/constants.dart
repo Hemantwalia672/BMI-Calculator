@@ -14,3 +14,6 @@ const kLabelTextStyle = TextStyle(
 
 const kNumberTextStyle =
     TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900, color: Colors.white);
+
+const kBottomButtonTextStyle =
+    TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0, color: Colors.white);
